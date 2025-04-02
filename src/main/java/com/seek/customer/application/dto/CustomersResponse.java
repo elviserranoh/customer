@@ -1,7 +1,5 @@
-package com.seek.customer.application.FindAll;
+package com.seek.customer.application.dto;
 
-import com.seek.customer.application.Find.CustomerResponse;
-import com.seek.customer.domain.aggregates.Customer;
 import com.seek.shared.domain.bus.query.Response;
 
 import java.util.List;
@@ -13,10 +11,7 @@ public class CustomersResponse implements Response {
         this.customers = customers;
     }
 
-    public static CustomerResponse fromAggregate(List<Customer> customers) {
-        return new CustomersResponse(customers.stream().map(customer -> CustomerResponse.fromAggregate(customer)).toList());
-    }
-    public List<CustomerResponse> getCustomers() {
+    public List<CustomerResponse> customers() {
         return customers;
     }
 }

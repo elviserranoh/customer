@@ -1,4 +1,4 @@
-package com.seek.customer.infrastructure.controllers.dto;
+package com.seek.customer.infrastructure.controllers.advice.dto;
 
 import org.springframework.http.HttpStatus;
 

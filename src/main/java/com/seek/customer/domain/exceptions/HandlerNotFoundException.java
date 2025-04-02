@@ -1,7 +1,7 @@
 package com.seek.customer.domain.exceptions;
 
-public class QueryHandlerNotFoundException extends RuntimeException {
-    public QueryHandlerNotFoundException(String message) {
+public class HandlerNotFoundException extends RuntimeException {
+    public HandlerNotFoundException(String message) {
         super(message);
     }
 }

@@ -1,4 +1,6 @@
 package com.seek.customer.application.FindAll;
 
-public class FindAllQuery {
+import com.seek.shared.domain.bus.query.Query;
+
+public class CustomerFindAllQuery implements Query {
 }

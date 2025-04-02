@@ -1,7 +1,7 @@
 package com.seek.customer.infrastructure.exceptions;
 
-public class PersistenceException extends RuntimeException{
-    public PersistenceException(String message) {
+public class CustomerPersistenceException extends RuntimeException{
+    public CustomerPersistenceException(String message) {
         super(message);
     }
 }

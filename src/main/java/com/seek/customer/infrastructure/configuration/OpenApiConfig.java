@@ -1,4 +1,4 @@
-package cl.tbk.walletqr.authorize.infrastructure.configuration;
+package com.seek.customer.infrastructure.configuration;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
@@ -8,11 +8,11 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * Basic configuration for the swagger library
- * @author eserrano
+ * @author Elvis Serrano
  *
  */
 @Configuration
-public class SwaggerConfig {
+public class OpenApiConfig {
 
 	@Bean
 	public GroupedOpenApi publicApi() {
@@ -26,8 +26,8 @@ public class SwaggerConfig {
 	public OpenAPI springShopOpenAPI() {
 		return new OpenAPI()
 				.info(new Info()
-						.title("QRWLTE Authorize")
-						.description("Componente que permite autorizar un pago")
+						.title("Service Customer")
+						.description("Componente que permite gestionar clientes")
 						.version("v1.0.0"));
 	}
 

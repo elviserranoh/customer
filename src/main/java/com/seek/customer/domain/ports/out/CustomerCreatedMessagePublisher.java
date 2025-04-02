@@ -1,7 +1,6 @@
 package com.seek.customer.domain.ports.out;
 
-import com.seek.customer.domain.events.CustomerCreatedEvent;
-import com.seek.shared.domain.events.DomainEventPublisher;
+import com.seek.shared.domain.bus.event.EventBus;
 
-public interface CustomerCreatedDomainEventPublisher extends DomainEventPublisher<CustomerCreatedEvent> {
+public interface CustomerCreatedMessagePublisher extends EventBus {
 }

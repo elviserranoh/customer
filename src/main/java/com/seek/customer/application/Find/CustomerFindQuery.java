@@ -4,10 +4,14 @@ import com.seek.shared.domain.bus.query.Query;
 
 import java.util.UUID;
 
-public class FindCustomerQuery implements Query {
+public class CustomerFindQuery implements Query {
     private final UUID id;
 
-    public FindCustomerQuery(UUID id) {
+    public CustomerFindQuery(UUID id) {
         this.id = id;
+    }
+
+    public UUID getId() {
+        return id;
     }
 }

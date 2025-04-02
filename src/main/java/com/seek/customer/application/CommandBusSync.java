@@ -1,5 +1,7 @@
 package com.seek.customer.application;
 
+import com.seek.customer.domain.exceptions.CustomerDomainException;
+import com.seek.customer.domain.exceptions.HandlerNotFoundException;
 import com.seek.shared.domain.bus.command.Command;
 import com.seek.shared.domain.bus.command.CommandBus;
 import com.seek.shared.domain.bus.command.CommandHandler;
@@ -9,7 +11,7 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 
-public class CommandBus implements CommandBus {
+public class CommandBusSync implements CommandBus {
 
     private final Map<Class<? extends Command>, CommandHandler<? extends Command>> handlers = new HashMap<>();
 
@@ -20,12 +22,16 @@ public class CommandBus implements CommandBus {
     public <C extends Command> void dispatch(C command) {
 
         if(Objects.isNull(command)) {
-            throw new IllegalArgumentException("Command cannot be null");
+            throw new CustomerDomainException("Command cannot be required");
         }
 
-        CommandHandler<C> handler = (CommandHandler<C>) this.handlers.get(command);
+        @SuppressWarnings({"unchecked"})
+        CommandHandler<C> handler = (CommandHandler<C>) this.handlers.get(command.getClass());
 
-        Optional.ofNullable(handler).orElseThrow(() -> new IllegalArgumentException("No handler registered for " + command.getClass()));
+        Optional.ofNullable(handler)
+                .orElseThrow(() ->
+                        new HandlerNotFoundException("No handler registered for " + command.getClass())
+                );
 
         try {
             handler.handle(command);
